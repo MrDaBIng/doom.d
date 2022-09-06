@@ -76,4 +76,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq leetcode-prefer-language "golang")
+(setq leetcode-prefer-sql "mysql")
+(setq leetcode-directory "/Users/show/workspace/code/golang/src/github.com/MrDaBIng/algs/pkg/leetcode")
+
 (map! :n :desc "open treemacs" :n "tt" #'treemacs)
+(map! :n :desc "find reference" :n "gr" #'lsp-find-references)
+(map! :n :desc "sho doc in pop" :n "D" #'lsp-ui-doc-show)
