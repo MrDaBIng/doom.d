@@ -75,11 +75,17 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(global-hl-line-mode t)
 
+;;leetcode
 (setq leetcode-prefer-language "golang")
 (setq leetcode-prefer-sql "mysql")
-(setq leetcode-directory "/Users/show/workspace/code/golang/src/github.com/MrDaBIng/algs/pkg/leetcode")
+;;(setq leetcode-directory "/Users/show/workspace/code/golang/src/github.com/MrDaBIng/algs/pkg/leetcode")
 
 (map! :n :desc "open treemacs" :n "tt" #'treemacs)
+
+;;lsp
+(setq lsp-enable-snippet nil)
 (map! :n :desc "find reference" :n "gr" #'lsp-find-references)
 (map! :n :desc "sho doc in pop" :n "D" #'lsp-ui-doc-show)
+(map! :n :desc "find impl" :n "gi" #'lsp-find-implementation)
