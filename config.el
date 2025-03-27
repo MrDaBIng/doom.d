@@ -43,13 +43,15 @@
 
 (after! org-capture
   (setq! org-capture-templates
-         '(("i" "Inbox Todo" entry (file+headline gtd-inbox-file "Inbox")
-            "* TODO %?\n  %i\n  %a")
+         '(("i" "Inbox Todo" entry (file+headline "~/workspace/ORG/GTD/inbox.org" "Inbox")
+            "*  %?\n  %i\n  %a")
            ("p" "Projects")
-           ("pe" "Eventbus Todo" entry (file+headline gtd-project-file "Eventbus")
-            "* TODO %?\n  %i\n  %a")
-           ("ps" "SiteBuild Todo" entry (file+headline gtd-project-file "site-build")
-            "* TODO %?\n  %i\n  %a"))))
+           ("pe" "Eventbus Todo" entry (file+headline "~/workspace/ORG/GTD/eventbus.org" "Inbox")
+            "*  %?\n  %i\n  %a")
+           ("ps" "SiteBuild Todo" entry (file+headline "~/workspace/ORG/GTD/site-build.org" "Inbox")
+            "*  %?\n  %i\n  %a")
+           ("pv" "vdc Todo" entry (file+headline "~/workspace/ORG/GTD/vdc.org" "Inbox")
+            "*  %?\n  %i\n  %a"))))
 ;; org-roam
 (setq org-roam-directory (file-truename "~/workspace/ORG/")
       org-roam-dailies-directory "Journal/roam")
@@ -102,9 +104,9 @@
                                      )))
   (setq org-super-agenda-groups
         '(
-          (:name "Life" :tag "life" :time-grid t)
-          (:name "Work" :tag "work")
-          (:name "--------------------------------------------------\n 📥 INBOX" :and (:category "inbox" :todo "TODO") :order 99)
+                                        ;(:name "Life" :tag "life" :time-grid t)
+                                        ;(:name "Work" :tag "work")
+          (:name "--------------------------------------------------\n 📥 INBOX" :and (:category "inbox") :order 99)
           (:name "Due today" :deadline today :order 1 :face (:foreground "red" :background "black"))
           (:name "Due soon" :deadline future :order 2 :face (:foreground "red"))
           (:name "Today" :scheduled t :order 3 :face (:foreground "yellow"))
@@ -126,7 +128,7 @@
   :config
   (setq
    ;; Edit settings
-   org-catch-invisible-edits 'show-and-error
+   org-foldcatch-invisible-edits 'show-and-error
    org-special-ctrl-a/e t
    org-insert-heading-respect-content t
    ;; Appearance
